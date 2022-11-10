@@ -1,40 +1,40 @@
 const todoList = () => {
-    hemananda1 = []
-    const addchumchum = (todoItem) => {
-      hemananda1.push(todoItem)
+    all = []
+    const add = (todoItem) => {
+      all.push(todoItem)
     }
-    const markzuken = (index) => {
-      hemananda1[index].completed = true
+    const markAsComplete = (index) => {
+      all[index].completed = true
     }
   
-    const ot = () => {
-      // Write the date check condition here and return the array of ot items accordingly.
+    const overdue = () => {
+      // Write the date check condition here and return the array of overdue items accordingly.
       // FILL YOUR CODE HERE
       // ..
       // ..
       // ..
-      return hemananda1.filter((item)=> item.dueDate<new Date().toLocaleDateString("en-CA"));
+      return all.filter((item)=> item.dueDate<new Date().toLocaleDateString("en-CA"));
     }
   
-    const dt = () => {
+    const dueToday = () => {
       // Write the date check condition here and return the array of todo items that are due today accordingly.
       // FILL YOUR CODE HERE
       // ..
       // ..
       // ..
-      return hemananda1.filter((item)=> item.dueDate==new Date().toLocaleDateString("en-CA"));
+      return all.filter((item)=> item.dueDate==new Date().toLocaleDateString("en-CA"));
     }
   
-    const DL = () => {
+    const dueLater = () => {
       // Write the date check condition here and return the array of todo items that are due later accordingly.
       // FILL YOUR CODE HERE
       // ..
       // ..
       // ..
-      return hemananda1.filter((item)=> item.dueDate>new Date().toLocaleDateString("en-CA"));
+      return all.filter((item)=> item.dueDate>new Date().toLocaleDateString("en-CA"));
     }
   
-    const TDL = (list) => {
+    const toDisplayableList = (list) => {
       // Format the To-Do list here, and return the output string as per the format given above.
       // FILL YOUR CODE HERE
       // ..
@@ -52,7 +52,7 @@ const todoList = () => {
     return res;
     }
   
-    return { hemananda1, addchumchum, markzuken, ot, dt, DL, TDL };
+    return { all, add, markAsComplete, overdue, dueToday, dueLater, toDisplayableList };
   }
   
   // ####################################### #
@@ -74,28 +74,28 @@ const todoList = () => {
     new Date(new Date().setDate(dateToday.getDate() + 1))
   )
   
-  todos.addchumchum({ title: 'Submit assignment', dueDate: yesterday, completed: false })
-  todos.addchumchum({ title: 'Pay rent', dueDate: today, completed: true })
-  todos.addchumchum({ title: 'Service Vehicle', dueDate: today, completed: false })
-  todos.addchumchum({ title: 'File taxes', dueDate: tomorrow, completed: false })
-  todos.addchumchum({ title: 'Pay electric bill', dueDate: tomorrow, completed: false })
+  todos.add({ title: 'Submit assignment', dueDate: yesterday, completed: false })
+  todos.add({ title: 'Pay rent', dueDate: today, completed: true })
+  todos.add({ title: 'Service Vehicle', dueDate: today, completed: false })
+  todos.add({ title: 'File taxes', dueDate: tomorrow, completed: false })
+  todos.add({ title: 'Pay electric bill', dueDate: tomorrow, completed: false })
   
   console.log("My Todo-list\n\n")
   
-  console.log("ot")
-  var ots = todos.ot()
-  var formattedots = todos.TDL(ots)
-  console.log(formattedots)
+  console.log("Overdue")
+  var overdues = todos.overdue()
+  var formattedOverdues = todos.toDisplayableList(overdues)
+  console.log(formattedOverdues)
   console.log("\n\n")
   
   console.log("Due Today")
-  let itemsdt = todos.dt()
-  let formattedItemsdt = todos.TDL(itemsdt)
-  console.log(formattedItemsdt)
+  let itemsDueToday = todos.dueToday()
+  let formattedItemsDueToday = todos.toDisplayableList(itemsDueToday)
+  console.log(formattedItemsDueToday)
   console.log("\n\n")
   
   console.log("Due Later")
-  let itemsDL = todos.DL()
-  let formattedItemsDL = todos.TDL(itemsDL)
-  console.log(formattedItemsDL)
+  let itemsDueLater = todos.dueLater()
+  let formattedItemsDueLater = todos.toDisplayableList(itemsDueLater)
+  console.log(formattedItemsDueLater)
   console.log("\n\n")
